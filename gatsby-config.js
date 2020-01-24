@@ -79,10 +79,19 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-layout',
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        component: require.resolve('./src/components/layout/page-layout')
-      }
-    }
-  ]
+        custom: {
+          families: ['Science Gothic, Inter'],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+    {
+			resolve: `gatsby-plugin-layout`,
+			options: {
+					component: require.resolve(`./src/components/layout/page-layout`)
+			}
+		},
+  ],
 }
