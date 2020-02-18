@@ -17,8 +17,15 @@
   --px1: .25rem;
   --px2: calc(2 * var(--px1));
 
-  --colorPrimary: rebeccapurple;
-  --colorWhite: white;
+  --primaryColor: rebeccapurple;
+  --backgroundColor: white;
+
+  --dark: #1e053f;
+  --light: #fff7ff;
+  --primary: #192368;
+  --active: #ed6554;
+  --highlight: #7c1863;
+  --disabled: #2f323a;
 }
 
 html {
