@@ -17,15 +17,18 @@
   --px1: .25rem;
   --px2: calc(2 * var(--px1));
 
-  --primaryColor: rebeccapurple;
-  --backgroundColor: white;
-
-  --dark: #1e053f;
-  --light: #fff7ff;
-  --primary: #192368;
-  --active: #ed6554;
-  --highlight: #7c1863;
-  --disabled: #2f323a;
+  // --colorDark: #1e053f;
+  // --colorLight: #fff7ff;
+  // --colorPrimary: #192368;
+  // --colorActive: #ed6554;
+  // --colorHighlight: #7c1863;
+  // --colorDisabled: #2f323a;
+  --colorDark: #0f0f0f;
+  --colorLight: #ffffff;
+  --colorPrimary: rebeccapurple;
+  --colorActive: rebeccapurple;
+  --colorHighlight: rebeccapurple;
+  --colorDisabled: #78757a;
 }
 
 html {

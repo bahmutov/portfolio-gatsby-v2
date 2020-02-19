@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/functions.scss';
 
-.color-table {
+.color-chart {
   display: flex;
   align-items: stretch;
   font-size: 1rem;
@@ -64,8 +64,10 @@
       margin-bottom: 0;
     }
 
-    th {
-      display: none;
+    &--editable {
+      th {
+        display: none;
+      }
     }
   }
 }
