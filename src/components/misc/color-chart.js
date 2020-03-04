@@ -11,18 +11,18 @@ if (typeof window === 'undefined') {
   noJs = true
 }
 
+const themeColors = [
+  'colorPrimary',
+  'colorDark',
+  'colorLight',
+  // 'colorHighlight',
+  // 'colorActive',
+  'colorDisabled'
+]
+
 const ColorChart = props => {
 
   const { editable } = props
-
-  const themeColors = [
-    'colorPrimary',
-    'colorDark',
-    'colorLight',
-    // 'colorHighlight',
-    // 'colorActive',
-    'colorDisabled'
-  ]
 
   const getColor = colorName => {
     return getComputedStyle(document.documentElement)
@@ -114,7 +114,7 @@ const EditColor = props => {
 }
 
 ColorChart.propTypes = {
-
+  editable: PropTypes.bool,
 }
 
 EditColor.propTypes = {
@@ -125,3 +125,4 @@ EditColor.propTypes = {
 }
 
 export default ColorChart
+export { themeColors }
