@@ -10,24 +10,45 @@ import '../layout.css'
 import '../../styles/globals.scss'
 import './page.scss'
 
-const PageLayout = (props) => {
+const Page = (props) => {
 
-  const { 
-    name: pageName,
-    options: { 
-      hideSiteHeader = false
-    } = {} // default to empty object if any values are missing
-  } = props.data.mdx.frontmatter
+  const {
+    fields: {
+      contentType
+    } = { contentType: 'page'},
+    frontmatter,
+    frontmatter: {
+      name: pageName,
+      options: { 
+        hideSiteHeader = false
+      } = {} // default to empty object if any values are missing
+    }
+  } = props.data.mdx
 
   return (
     <>
       <Helmet>
-        <script data-goatcounter="https://ryanfiller.goatcounter.com/count" async src="//gc.zgo.at/count.js"/>
+        <style type="text/css">
+          {`
+            body {
+                background-color: blue;
+                --colorPrimary: pink;
+            }
+          `}
+        </style>
+        <script 
+          async
+          src="//gc.zgo.at/count.js"
+          data-goatcounter="https://ryanfiller.goatcounter.com/count"
+        />
       </Helmet>
       <SEO {...props.data.mdx} />
       <div id='site' className={pageName}>
         {!hideSiteHeader && 
-          <Header title='ryanfiller.com' />
+          <Header
+            frontmatter={frontmatter}
+            contentType={contentType}
+          />
         }
         <div id='content'>
           {props.children}
@@ -38,19 +59,9 @@ const PageLayout = (props) => {
   )
 }
 
-PageLayout.propTypes = {
+Page.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.shape({
-    mdx: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        title: PropTypes.string,
-        options: PropTypes.shape({
-          hideSiteHeader: PropTypes.bool
-        })
-      }).isRequired
-    }).isRequired
-  }).isRequired
+  data: PropTypes.object.isRequired
 }
 
-export default PageLayout
+export default Page
