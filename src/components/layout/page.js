@@ -28,6 +28,14 @@ const Page = (props) => {
   return (
     <>
       <Helmet>
+        <style type="text/css">
+          {`
+            body {
+                background-color: blue;
+                --colorPrimary: pink;
+            }
+          `}
+        </style>
         <script 
           async
           src="//gc.zgo.at/count.js"
