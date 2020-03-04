@@ -3,50 +3,31 @@ import { default as Chart } from 'react-color-contrast-table'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import { colors as themeColors } from '../../config/colors'
 import './color-chart.scss'
 
 // I really don't love this, but whatever I guess.
+// TODO can this get moved into context if its need other places?
 let noJs
 if (typeof window === 'undefined') {
   noJs = true
 }
 
-const themeColors = [
-  'colorPrimary',
-  'colorDark',
-  'colorLight',
-  // 'colorHighlight',
-  // 'colorActive',
-  'colorDisabled'
-]
-
 const ColorChart = props => {
 
   const { editable } = props
 
-  const getColor = colorName => {
-    return getComputedStyle(document.documentElement)
-    .getPropertyValue(`--${colorName}`).replace(' ', '')
-  }
-
-  const setColor = (colorName, colorValue) => {
+  const setCssColor = (colorName, colorValue) => {
     document.documentElement.style
     .setProperty(`--${colorName}`, colorValue)
   }
 
-  const [colors, setColors] = useState( noJs ? 
-    [
-      { name: 'colorPrimary', value: '#192368' },
-      { name: 'colorDark', value: '#1e053f' },
-      { name: 'colorLight', value: '#fff7ff' },
-      { name: 'colorHighlight', value: '#7c1863' },
-      { name: 'colorActive', value: '#ed6554' },
-      { name: 'colorDisabled', value: '#2f323a' }
-    ] :
-    themeColors.map(color => ({
-      name: color,
-      value: getColor(color)
-    }))
+
+  const [colors, setColors] = useState(
+    Object.entries(themeColors).map(color => {
+      const [name, value] = color
+      return { name: name, value: value}
+    })
   )
 
   const handleInputChange = index => event => {
@@ -55,7 +36,7 @@ const ColorChart = props => {
     const value = event.target.value
     newColors[index] = {name: name, value: value}
     setColors(newColors)
-    setColor(name, value)
+    setCssColor(name, value)
   }
   
   return (
@@ -125,4 +106,3 @@ EditColor.propTypes = {
 }
 
 export default ColorChart
-export { themeColors }

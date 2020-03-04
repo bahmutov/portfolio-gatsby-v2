@@ -7,6 +7,7 @@ import Header from './header'
 import Footer from './footer'
 import '../layout.css'
 
+import { cssVars } from '../../config/colors'
 import '../../styles/globals.scss'
 import './page.scss'
 
@@ -29,12 +30,7 @@ const Page = (props) => {
     <>
       <Helmet>
         <style type="text/css">
-          {`
-            body {
-                background-color: blue;
-                --colorPrimary: pink;
-            }
-          `}
+          {` :root { ${cssVars} } `}
         </style>
         <script 
           async
