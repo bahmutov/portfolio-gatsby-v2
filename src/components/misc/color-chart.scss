@@ -28,7 +28,7 @@
       text-align: right;
       line-height: 1;
       margin-right: .5em;
-      width: 6ch;
+      width: 10ch;
 
       &--name {
         display: block;
@@ -40,6 +40,7 @@
         display: block;
         font-size: .9em;
         margin-bottom: .25rem;
+        font-variant-numeric: tabular-nums;
       }
     }
 
