@@ -7,9 +7,9 @@ const colors = {
   // colorDisabled: '#2f323a'
   colorDark: '#0f0f0f',
   colorLight: '#ffffff',
-  colorPrimary: 'rebeccapurple',
-  // colorActive: 'rebeccapurple',
-  // colorHighlight: 'rebeccapurple',
+  colorPrimary: '#663399',
+  // colorActive: '#663399',
+  // colorHighlight: '#663399',
   colorDisabled: '#78757a'
 }
 
